@@ -11,7 +11,13 @@ spring:
         predicates : 
           -Path=/projet/**
           filtres:
-            -RewritePath=/projet/(?<path>.*), /$\{path}
+            -RewritePath=/projet/(?<path>.*), /$\{path
+            -id: microservice-utilisateur
+        uri: lb://microservice-utilisateur
+        predicates : 
+          -Path=/utilisateur/**
+          filtres:
+            -RewritePath=/utilisateur/(?<path>.*), /$\{path}
         
   
 
